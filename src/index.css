@@ -1,0 +1,8 @@
+/* 1. Tailwind d'abord */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Ensuite tes propres fichiers */
+@import './css/variables.css';
+@import './css/global.css';

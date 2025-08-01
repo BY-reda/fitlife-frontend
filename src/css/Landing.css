@@ -1,0 +1,264 @@
+
+.landing-container {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+.hero-slider {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+    color: #ccc;
+}
+
+.hero-content button {
+  background-color: #10b981;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background-color: #059669;
+}
+
+.services-section {
+  padding: 4rem 2rem;
+  background: #F4F7F9;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.services-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.pricing-section {
+  padding: 60px 20px;
+  background-color:#F4F7F9;
+  text-align: center;
+}
+
+.pricing-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.pricing-section p {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pricing-card {
+  width: 280px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card.highlighted {
+  border: 2px solid #10b981;
+  background-color: #ecfdf5;
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.pricing-card .subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.pricing-card .price {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.pricing-card .price span {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.pricing-card ul li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.pricing-card button {
+  width: 100%;
+  background-color: #111827;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pricing-card button.green {
+  background-color: #10b981;
+}
+
+.signup-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #f3f4f6;
+}
+
+
+
+.selected-plan {
+  border: 2px solid #4caf50;
+  box-shadow: 0 0 10px #4caf50;
+}
+
+.selected-plan .active {
+  background-color: #4caf50;
+  color: white;
+  cursor: default;
+}
+
+.locked-plan {
+  opacity: 0.6;
+  position: relative;
+}
+
+.locked-plan .disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.lock-icon {
+  font-size: 1rem;
+  margin-left: 5px;
+  color: #999;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

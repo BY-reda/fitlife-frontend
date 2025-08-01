@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #01BE62;        /* Your main green */
+  --primary-dark: #019b4a;         /* A darker green for hover/focus */
+  --text-color: #222222;           /* Dark text for readability */
+  --background-color: #FFFFFF;     /* White background */
+  --border-radius: 6px;            /* Smooth corners */
+  --font-family: 'Arial', sans-serif; /* Clean and simple font */
+}
