@@ -1,29 +1,65 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import api from "../api/client";
 import "../css/Profile.css";
 import { calculateCalories } from "../utils/calculateCalories";
 
 const Profile = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, loading } = useContext(AuthContext);
   const [activeTab, setActiveTab] = useState("info");
 
-  const [username, setUsername] = useState(user?.username || "");
-  const [age, setAge] = useState(user?.age || "");
-  const [weight, setWeight] = useState(user?.weight || "");
-  const [height, setHeight] = useState(user?.height || "");
-  const [goal, setGoal] = useState(user?.goal || "");
-  const [bio, setBio] = useState(user?.bio || "");
-  const [gender, setGender] = useState(user?.gender || "male");
-  const [activityLevel, setActivityLevel] = useState(user?.activityLevel || "moderate");
-  const [profileImage, setProfileImage] = useState(user?.profileImage || "");
+  // Initialize with empty values - don't use user data here
+  const [username, setUsername] = useState("");
+  const [age, setAge] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [goal, setGoal] = useState("");
+  const [bio, setBio] = useState("");
+  const [gender, setGender] = useState("male");
+  const [activityLevel, setActivityLevel] = useState("moderate");
+  const [profileImage, setProfileImage] = useState("");
   const [message, setMessage] = useState("");
 
-  const [newEmail, setNewEmail] = useState(user?.email || "");
-  const [confirmEmail, setConfirmEmail] = useState(user?.email || "");
+  const [newEmail, setNewEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [credMessage, setCredMessage] = useState("");
+
+  // Populate form fields when user data becomes available
+  useEffect(() => {
+    if (user) {
+      setUsername(user.username || "");
+      setAge(user.age || "");
+      setWeight(user.weight || "");
+      setHeight(user.height || "");
+      setGoal(user.goal || "");
+      setBio(user.bio || "");
+      setGender(user.gender || "male");
+      setActivityLevel(user.activityLevel || "moderate");
+      setProfileImage(user.profileImage || "");
+      setNewEmail(user.email || "");
+      setConfirmEmail(user.email || "");
+    }
+  }, [user]);
+
+  // Show loading while fetching user data
+  if (loading) {
+    return (
+      <div className="profile-container">
+        <div className="loading">Loading profile...</div>
+      </div>
+    );
+  }
+
+  // Handle case where user is not logged in
+  if (!user) {
+    return (
+      <div className="profile-container">
+        <div className="error">Please log in to view your profile.</div>
+      </div>
+    );
+  }
 
   const targetCalories = calculateCalories(weight, height, age, activityLevel, goal, gender);
   const bmi = weight && height ? (weight / ((height / 100) ** 2)).toFixed(1) : null;
@@ -33,9 +69,9 @@ const Profile = () => {
     try {
       const response = await api.put("/users/me", {
         username,
-        age,
-        weight,
-        height,
+        age: parseInt(age) || undefined,
+        weight: parseFloat(weight) || undefined,
+        height: parseFloat(height) || undefined,
         goal,
         bio,
         profileImage,
@@ -45,9 +81,11 @@ const Profile = () => {
       });
       setUser(response.data);
       setMessage("✅ Profile updated successfully!");
+      setTimeout(() => setMessage(""), 3000);
     } catch (err) {
       console.error(err);
       setMessage("❌ Error updating profile.");
+      setTimeout(() => setMessage(""), 5000);
     }
   };
 
@@ -55,14 +93,17 @@ const Profile = () => {
     e.preventDefault();
     if (newEmail !== confirmEmail) {
       setCredMessage("❌ Emails do not match.");
+      setTimeout(() => setCredMessage(""), 3000);
       return;
     }
     try {
       const res = await api.put("/users/me/credentials", { newEmail });
       setUser(prev => ({ ...prev, email: res.data.email }));
       setCredMessage("✅ Email updated successfully.");
+      setTimeout(() => setCredMessage(""), 3000);
     } catch (err) {
       setCredMessage("❌ Failed to update email.");
+      setTimeout(() => setCredMessage(""), 5000);
     }
   };
 
@@ -74,8 +115,12 @@ const Profile = () => {
         newPassword,
       });
       setCredMessage("✅ Password updated successfully.");
+      setCurrentPassword("");
+      setNewPassword("");
+      setTimeout(() => setCredMessage(""), 3000);
     } catch (err) {
       setCredMessage("❌ Failed to update password. Please verify your current password.");
+      setTimeout(() => setCredMessage(""), 5000);
     }
   };
 
@@ -126,7 +171,7 @@ const Profile = () => {
 
                 <label>
                   Weight (kg)
-                  <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} />
+                  <input type="number" step="0.1" value={weight} onChange={(e) => setWeight(e.target.value)} />
                 </label>
 
                 <label>
@@ -135,13 +180,14 @@ const Profile = () => {
                 </label>
 
                 <label>
-  Fitness Goal
-  <select value={goal} onChange={(e) => setGoal(e.target.value)}>
-    <option value="">Select goal</option>
-    <option value="lose weight">Lose Weight</option>
-    <option value="gain weight">Gain Weight</option>
-  </select>
-</label>
+                  Fitness Goal
+                  <select value={goal} onChange={(e) => setGoal(e.target.value)}>
+                    <option value="">Select goal</option>
+                    <option value="lose weight">Lose Weight</option>
+                    <option value="gain weight">Gain Weight</option>
+                    <option value="maintain weight">Maintain Weight</option>
+                  </select>
+                </label>
 
                 <label>
                   Bio
@@ -175,8 +221,6 @@ const Profile = () => {
               <button type="submit">💾 Save changes</button>
               {message && <p className="msg">{message}</p>}
             </form>
-
-          
           </>
         )}
 
