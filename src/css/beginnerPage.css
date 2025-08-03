@@ -1,0 +1,152 @@
+.program-card-enhanced {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1600px;
+  height: 500px;
+  margin: 20px auto;
+}
+
+.program-card-enhanced:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.program-header {
+  background: #f8fafc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.program-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.program-icon {
+  font-size: 2rem;
+}
+
+.program-title h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.program-subtitle {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 4px 0 0 0;
+}
+
+.program-tag {
+  background: #4299e1;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.program-content {
+  padding: 24px 20px;
+}
+
+.program-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+}
+
+.program-description {
+  color: #4a5568;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.program-description strong {
+  color: #4299e1;
+  font-weight: 600;
+}
+
+.program-details {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.program-details > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f7fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+  min-width: 100px;
+}
+
+.detail-icon {
+  font-size: 1rem;
+}
+
+.program-details span:last-child {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.program-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.program-benefits li {
+  color: #4a5568;
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+.program-button {
+  width: 100%;
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.program-button:hover {
+  background: #3182ce;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .program-card-enhanced {
+    margin: 16px;
+  }
+  
+  .program-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .program-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
