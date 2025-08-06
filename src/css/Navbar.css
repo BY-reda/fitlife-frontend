@@ -165,116 +165,15 @@ body {
   color: var(--danger-color);
 }
 
-.menu-button {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
 
-.menu-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--dark-color);
-}
 
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  animation: slideDown 0.3s ease-out;
-}
 
-.mobile-link {
-  color: var(--dark-color);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: var(--transition);
-}
 
-.mobile-link:hover {
-  color: var(--primary-color);
-  padding-left: 0.5rem;
-}
-
-.mobile-link.logout-icon {
-  color: var(--danger-color);
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .navbar-links {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0.5rem 1rem;
-  }
-
-  .navbar-links {
-    display: none;
-  }
-
-  .navbar-actions {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: flex;
-  }
-
-  .navbar-brand img {
-    height: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0.5rem;
-  }
-
-  .mobile-menu {
-    padding: 1rem;
-  }
-}
-
-/* User profile image styling if you want to replace the icon */
-.profile-image {
-  width: 36px;
-  height: 36px;
+.user-avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--primary-color);
-  transition: var(--transition);
+  border: 2px solid #ccc;
 }
 
-.profile-image:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
-}

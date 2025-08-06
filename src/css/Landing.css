@@ -262,3 +262,42 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+/* Force full-height consistent slides */
+.slick-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.slick-slide > div {
+  width: 100%;
+  height: 100%;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+/* Make images fully cover the slide space */
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-slider {
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}

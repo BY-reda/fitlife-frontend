@@ -8,6 +8,7 @@ const Navbar = ({ onJoinClick }) => {
   const [open, setOpen] = useState(false);
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log("USER OBJECT:", user);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -56,13 +57,22 @@ const Navbar = ({ onJoinClick }) => {
           {user ? (
             <>
               
-              <button
-                className="profile-icon-btn"
-                onClick={goToUserPage}
-                title="Profile"
-              >
-                <User className="profile-icon" />
-              </button>
+            <button
+  className="profile-icon-btn"
+  onClick={goToUserPage}
+  title="Profile"
+>
+{user.profileImage ? (
+  <img
+    src={user.profileImage}
+    alt="Profile"
+    className="user-avatar"
+  />
+) : (
+  <User className="profile-icon" />
+)}
+</button>
+
               <button
                 className="logout-btn"
                 onClick={handleLogout}
@@ -83,9 +93,7 @@ const Navbar = ({ onJoinClick }) => {
           )}
         </div>
 
-        <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          <Menu className="menu-icon" />
-        </button>
+     
       </div>
 
       {open && (

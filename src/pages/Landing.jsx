@@ -1,9 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef } from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import Navbar from '../pages/Navbar';
 import SignupForm from '../pages/Signup';
-import '../css/Landing.css';
 import Footer from './Footer';
+import '../css/Landing.css';
 
 const slides = [
   {
@@ -23,7 +25,8 @@ const slides = [
     title: 'be your own coach',
     description: 'Every journey is different, let’s personalize yours.',
     button: 'Get Started',
-  }, {
+  },
+  {
     image: './media/2.png',
     title: 'meals prep',
     description: 'make your own meals with our programms.',
@@ -33,55 +36,58 @@ const slides = [
 
 const Landing = () => {
   const signupRef = useRef(null);
-  const [current, setCurrent] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-    const [nextIndex, setNextIndex] = useState(1);
-
 
   const scrollToSignup = () => {
-    signupRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (signupRef.current) {
+      window.scrollTo({
+        top: signupRef.current.offsetTop,
+        behavior: 'smooth',
+      });
+    }
   };
 
-  useEffect(() => {
-  // Load the initial image first
-  const img = new Image();
-  img.src = slides[current].image;
-  img.onload = () => setLoaded(true);
+ const settings = {
+  dots: true,
+  infinite: true,
+  speed: 900,            // Faster transition speed
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,   // Less wait between slides
+  arrows: false,         // Disable arrows to reduce DOM work
+  pauseOnHover: false,   // Keeps autoplay smooth
+  cssEase: 'ease-in-out' // Smooth easing for transitions
+};
 
-  // Then start the slideshow
-  const interval = setInterval(() => {
-    const next = (nextIndex + 1) % slides.length;
-    const imgNext = new Image();
-    setLoaded(false);
-    imgNext.src = slides[nextIndex].image;
-    imgNext.onload = () => {
-      setCurrent(nextIndex);
-      setNextIndex(next);
-      setLoaded(true);
-    };
-  }, 5000);
-
-  return () => clearInterval(interval);
-}, []);
   return (
     <div className="landing-container">
       <Navbar onJoinClick={scrollToSignup} />
+
       <section className="hero-slider">
-        <div
-          className={`hero-slide ${loaded ? 'loaded' : 'loading'}`}
-          style={{
-            backgroundImage: loaded ? `url(${slides[current].image})` : 'none',
-          }}
-        >
-          <div className="hero-overlay" />
-          {loaded && (
-            <div className="hero-content">
-              <h1>{slides[current].title}</h1>
-              <p>{slides[current].description}</p>
-              <button onClick={scrollToSignup}>{slides[current].button}</button>
+        <Slider {...settings}>
+          {slides.map((slide, index) => (
+            <div key={index} className="hero-slide" style={{ position: 'relative' }}>
+              <img src={slide.image} alt={slide.title} style={{ width: '100%', height: 'auto' }} />
+              <div className="hero-overlay" />
+              <div
+                className="hero-content"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  color: '#fff',
+                  textAlign: 'center',
+                  width: '80%',
+                }}
+              >
+                <h1>{slide.title}</h1>
+                <p>{slide.description}</p>
+                <button onClick={scrollToSignup}>{slide.button}</button>
+              </div>
             </div>
-          )}
-        </div>
+          ))}
+        </Slider>
       </section>
 
       <section className="services-section">
@@ -106,60 +112,52 @@ const Landing = () => {
         </div>
       </section>
 
-    <section className="pricing-section">
-  <h2>Membership Plans</h2>
-  <p>Start your fitness journey for free. Upgrade to unlock nutrition tracking, personalized programs, and more!</p>
-  
-  <div className="pricing-cards">
+      <section className="pricing-section">
+        <h2>Membership Plans</h2>
+        <p>Start your fitness journey for free. Upgrade to unlock nutrition tracking, personalized programs, and more!</p>
+        <div className="pricing-cards">
+          <div className="pricing-card selected-plan">
+            <h3>Free</h3>
+            <p className="subtitle">Get started with the basics</p>
+            <p className="price">$0<span>/month</span></p>
+            <ul>
+              <li>Basic gym workouts</li>
+              <li>Access to food diary</li>
+              <li>Community support</li>
+              <li>Progress tracking (basic)</li>
+            </ul>
+            <button className="active">Selected</button>
+          </div>
 
-    {/* FREE PLAN - Default Selected */}
-    <div className="pricing-card selected-plan">
-      <h3>Free</h3>
-      <p className="subtitle">Get started with the basics</p>
-      <p className="price">$0<span>/month</span></p>
-      <ul>
-        <li>Basic gym workouts</li>
-        <li>Access to food diary</li>
-        <li>Community support</li>
-        <li>Progress tracking (basic)</li>
-      </ul>
-      <button className="active">Selected</button>
-    </div>
+          <div className="pricing-card locked-plan">
+            <h3>Premium <span className="lock-icon"></span></h3>
+            <p className="subtitle">Enhance your results</p>
+            <p className="price">$59<span>/month</span></p>
+            <ul>
+              <li>Advanced workout programs</li>
+              <li>Unlimited food diary entries</li>
+              <li>AI nutrition suggestions</li>
+              <li>Personalized plans</li>
+            </ul>
+            <button disabled className="disabled">Locked</button>
+          </div>
 
-    {/* PREMIUM PLAN - Locked */}
-    <div className="pricing-card locked-plan">
-      <h3>Premium <span className="lock-icon"></span></h3>
-      <p className="subtitle">Enhance your results</p>
-      <p className="price">$59<span>/month</span></p>
-      <ul>
-        <li>Advanced workout programs</li>
-        <li>Unlimited food diary entries</li>
-        <li>AI nutrition suggestions</li>
-        <li>Personalized plans</li>
-      </ul>
-      <button disabled className="disabled">Locked</button>
-    </div>
-
-    {/* ELITE PLAN - Locked */}
-    <div className="pricing-card locked-plan">
-      <h3>Elite <span className="lock-icon"></span></h3>
-      <p className="subtitle">Everything, unlimited</p>
-      <p className="price">$99<span>/month</span></p>
-      <ul>
-        <li>24/7 gym + all features</li>
-        <li>4 personal coaching sessions/month</li>
-        <li>Full access to nutrition & recovery</li>
-        <li>Exclusive elite community</li>
-      </ul>
-      <button disabled className="disabled">Locked</button>
-    </div>
-
-  </div>
-</section>
-
+          <div className="pricing-card locked-plan">
+            <h3>Elite <span className="lock-icon"></span></h3>
+            <p className="subtitle">Everything, unlimited</p>
+            <p className="price">$99<span>/month</span></p>
+            <ul>
+              <li>24/7 gym + all features</li>
+              <li>4 personal coaching sessions/month</li>
+              <li>Full access to nutrition & recovery</li>
+              <li>Exclusive elite community</li>
+            </ul>
+            <button disabled className="disabled">Locked</button>
+          </div>
+        </div>
+      </section>
 
       <section ref={signupRef} className="signup-section">
-
         <SignupForm />
       </section>
 
