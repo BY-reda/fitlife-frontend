@@ -9,12 +9,14 @@ import getImageUrl from "../utils/getImageUrl";
 const defaultAvatar = "https://www.gravatar.com/avatar/?d=mp&f=y";
 
 // Return the full image URL or data URI
+
+
 const getUserImageUrl = (profileImage) => {
   if (!profileImage) return defaultAvatar;
   if (profileImage.startsWith("http") || profileImage.startsWith("data")) {
     return profileImage;
   }
-  return `http://localhost:5000/${profileImage.replace(/^\/+/, "")}`;
+  return getImageUrl(profileImage);
 };
 
 const Social = () => {
@@ -338,11 +340,11 @@ const Social = () => {
                 <div className="post-body">
                   <p>{post.text}</p>
                   {post.imageUrl && (
-                    <img
-                      src={`http://localhost:5000/${post.imageUrl.replace(/^\/+/, "")}`}
-                      alt="Post"
-                      className="post-image"
-                    />
+               <img
+  src={getImageUrl(post.imageUrl)}
+  alt="Post"
+  className="post-image"
+/>
                   )}
                 </div>
                 <div className="post-footer">
@@ -438,14 +440,11 @@ const Social = () => {
                               <>
                                 <p className="comment-text">{comment.text}</p>
                                 {comment.imageUrl && (
-                                  <img
-                                    src={`http://localhost:5000/${comment.imageUrl.replace(
-                                      /^\/+/,
-                                      ""
-                                    )}`}
-                                    alt="Comment"
-                                    className="comment-image"
-                                  />
+                                <img
+  src={getImageUrl(comment.imageUrl)}
+  alt="Comment"
+  className="comment-image"
+/>
                                 )}
                               </>
                             )}
