@@ -152,7 +152,7 @@ const Home = () => {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <h1>Dashboard</h1>
-        <h2>Welcome back, {user?.username || "User"}!</h2>
+        <h2>Welcome back, {user?.username || "User"}</h2>
         <time className="dashboard-date">{formattedDate}</time>
       </header>
 

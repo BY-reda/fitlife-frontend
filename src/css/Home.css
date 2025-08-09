@@ -444,3 +444,53 @@
   margin-top: 4px;
 }
 
+/* Mobile-first responsive breakpoints */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 1rem;
+  }
+  
+  .dashboard-date {
+    font-size: 12px;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    padding: 0 10px;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 0.9rem;
+  }
+  
+  .dashboard-date {
+    font-size: 11px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .dashboard-header {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Menu, User, LogOut } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "../css/Navbar.css";
@@ -50,28 +50,27 @@ const Navbar = ({ onJoinClick }) => {
           <Link to="/app/workouts" onClick={() => setOpen(false)}>Training</Link>
           <Link to="/app/food" onClick={() => setOpen(false)}>Nutrition</Link>
           <Link to="/app/social" onClick={() => setOpen(false)}>Community</Link>
-            <Link to="/beginner" onClick={() => setOpen(false)}>Ai</Link>
+          <Link to="/beginner" onClick={() => setOpen(false)}>AI</Link>
         </nav>
 
         <div className="navbar-actions">
           {user ? (
             <>
-              
-            <button
-  className="profile-icon-btn"
-  onClick={goToUserPage}
-  title="Profile"
->
-{user.profileImage ? (
-  <img
-    src={user.profileImage}
-    alt="Profile"
-    className="user-avatar"
-  />
-) : (
-  <User className="profile-icon" />
-)}
-</button>
+              <button
+                className="profile-icon-btn"
+                onClick={goToUserPage}
+                title="Profile"
+              >
+                {user.profileImage ? (
+                  <img
+                    src={user.profileImage}
+                    alt="Profile"
+                    className="user-avatar"
+                  />
+                ) : (
+                  <User className="profile-icon" />
+                )}
+              </button>
 
               <button
                 className="logout-btn"
@@ -93,44 +92,57 @@ const Navbar = ({ onJoinClick }) => {
           )}
         </div>
 
-     
+        {/* Mobile Menu Toggle Button */}
+        <button 
+          className="mobile-menu-toggle"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle mobile menu"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
-      {open && (
-        <div className="mobile-menu">
+      {/* Mobile Menu Overlay */}
+      {open && <div className="mobile-menu-overlay" onClick={() => setOpen(false)} />}
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${open ? 'mobile-menu-open' : ''}`}>
+        <nav className="mobile-menu-content">
           <Link to="/app" onClick={() => setOpen(false)}>Dashboard</Link>
           <Link to="/app/workouts" onClick={() => setOpen(false)}>Training</Link>
           <Link to="/app/food" onClick={() => setOpen(false)}>Nutrition</Link>
           <Link to="/app/social" onClick={() => setOpen(false)}>Community</Link>
+          <Link to="/beginner" onClick={() => setOpen(false)}>AI</Link>
+
+          <div className="mobile-menu-divider"></div>
 
           {user ? (
             <>
-              <Link
-                to={`/app/user/${user._id}`}
-                onClick={() => setOpen(false)}
+              <button
+                onClick={goToUserPage}
+                className="mobile-menu-button"
               >
-                <User className="profile-icon" /> Profile
-              </Link>
-           
+                <User className="mobile-menu-icon" /> Profile
+              </button>
               <button
                 onClick={handleLogout}
-                className="mobile-link logout-icon"
+                className="mobile-menu-button logout-button"
               >
-                <LogOut className="profile-icon" /> Log Out
+                <LogOut className="mobile-menu-icon" /> Log Out
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" onClick={() => setOpen(false)}>
+              <Link to="/login" onClick={() => setOpen(false)} className="mobile-menu-auth">
                 Log In
               </Link>
-              <Link to="/signup" onClick={() => setOpen(false)}>
+              <button onClick={handleJoinClick} className="mobile-menu-join">
                 Join Now
-              </Link>
+              </button>
             </>
           )}
-        </div>
-      )}
+        </nav>
+      </div>
     </header>
   );
 };

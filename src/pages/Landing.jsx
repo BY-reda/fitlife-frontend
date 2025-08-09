@@ -92,22 +92,27 @@ const Landing = () => {
 
       <section className="services-section">
         <h2>Our Services</h2>
-        <p>We offer a variety of fitness programs to help you achieve your goals.</p>
+        <p>Nous vous accompagnons avec des solutions complètes pour atteindre vos objectifs santé et forme</p>
         <div className="service-cards">
-          <div className="card">
-            <img src="./media/Personal Training.png" alt="Personal Training" />
-            <h3>Personal Training</h3>
-            <p>One-on-one sessions with expert trainers</p>
+          <div className="card2">
+            <img src="./media/Journal Alimentaire & d’Entraînement.png" alt="Personal Training" />
+            <h3> Journal Alimentaire & d’Entraînement</h3>
+            <p>Consignez vos repas, vos séances et mesurez vos progrès jour après jour.</p>
           </div>
-          <div className="card">
-            <img src="./media/Group Classes.png" alt="Group Classes" />
-            <h3>Group Classes</h3>
-            <p>Fun, energetic workouts for all fitness levels</p>
+          <div className="card2">
+            <img src="./media/Programme d’Exercices Avancés.png" alt="Group Classes" />
+            <h3>Programme d’Exercices Avancés</h3>
+            <p>Une liste détaillée d’exercices ciblés, adaptés à votre niveau et à vos objectifs.</p>
           </div>
-          <div className="card">
+           <div className="card2">
+            <img src="./media/Programme Nutritionnel avec IA.png" alt="Personal Training" />
+            <h3> Programme Nutritionnel avec IA</h3>
+            <p>Un plan alimentaire personnalisé et évolutif grâce à l’intelligence artificielle.</p>
+          </div>
+          <div className="card2">
             <img src="./media/Nutrition Coaching.png" alt="Nutrition Coaching" />
-            <h3>Nutrition Coaching</h3>
-            <p>Personalized nutrition plans for optimal health</p>
+            <h3>Communauté Active</h3>
+            <p>Discutez, partagez vos réussites et trouvez la motivation auprès d’autres membres qui poursuivent les mêmes objectifs que vous.</p>
           </div>
         </div>
       </section>
