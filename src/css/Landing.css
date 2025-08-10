@@ -149,6 +149,7 @@
     width: auto!important;
   
   }
+
   
   .hero-content {
     width: 65%;
@@ -196,129 +197,420 @@
 /* =========================
    SERVICES SECTION
 ========================= */
+/* =========================
+   SERVICES SECTION - COMPACT VERSION
+========================= */
 .services-section {
-  padding: 4rem 2rem;
-  background: #F4F7F9;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   text-align: center;
 }
 
 .services-section h2 {
-  font-size: 2.5rem;
-  color: #111;
+  font-size: 2rem;
+  color: #1e293b;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .services-section p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 3rem;
-  max-width: 700px;
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .service-cards {
-
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cards in one line on desktop */
   justify-content: center;
-  gap: 2rem;
-  max-width: 1200px; /* Wider for 4 cards */
-  margin: 0 auto; /* Center the grid */
+  gap: 1.5rem;
+  max-width: 1200px; /* Full width for 4 cards */
+  margin: 0 auto;
 }
 
 .card2 {
-    background-color: #d2e4cc;
-    border-radius: 12px;
-    padding: 24px 28px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 32px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, 
+    rgba(16, 185, 129, 0.05) 0%, 
+    rgba(5, 150, 105, 0.08) 50%, 
+    rgba(4, 120, 87, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card2:hover::before {
+  opacity: 1;
 }
 
 .card2:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);
 }
 
 .card2 img {
   width: 100%;
-  height: 180px;
+  height: 140px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card2:hover img {
+  transform: scale(1.05);
 }
 
 .card2 h3 {
-  font-size: 1.3rem;
-  color: #222;
+  font-size: 1.1rem;
+  color: #1e293b;
   margin-bottom: 0.5rem;
-   
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .card2 p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* =========================
-   RESPONSIVE BREAKPOINTS for services
+   RESPONSIVE BREAKPOINTS
 ========================= */
 
-
-/* Tablet */
-@media (max-width: 768px) {
-  .service-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 500px;
-  }
-  
-
-}
-
-/* Mobile phones */
-@media (max-width: 480px) {
+/* Tablet / Large Mobile (Portrait) */
+@media screen and (max-width: 768px) {
   .services-section {
-    padding: 4rem 1rem;
-    margin-top: -400px;
-    position: relative;
-    z-index: 5;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .services-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .services-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
   
   .service-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
+    gap: 1.2rem;
+    max-width: 600px;
   }
   
-
+  .card2 {
+    padding: 1.2rem;
+  }
   
   .card2 img {
-    width: 100%;
     height: 120px;
-    object-fit: cover;
-    display: block;
-    margin: 0;
   }
   
   .card2 h3 {
     font-size: 1rem;
-    margin: 1rem 1rem 0.5rem 1rem;
-    line-height: 1.2;
-    font-weight: 600;
-    color: #222;
-    text-decoration: none;
-    background-color: #10b981 !important;
   }
   
   .card2 p {
     font-size: 0.85rem;
-    line-height: 1.3;
-    margin: 0 1rem 1rem 1rem;
-    color: #666;
-    text-decoration: none;
+  }
+}
+
+/* Standard Mobile Phones (Portrait) */
+@media screen and (max-width: 480px) {
+  .services-section {
+    padding: 2rem 1rem;
+    margin-top: -300px;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .services-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .services-section p {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards on mobile */
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .card2 {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .card2 img {
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .card2 h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .card2 p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+/* Small Mobile Phones */
+@media screen and (max-width: 414px) {
+  .services-section {
+    padding: 1.8rem 0.8rem;
+    margin-top: -280px;
+  }
+  
+  .services-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .service-cards {
+    gap: 0.8rem;
+  }
+  
+  .card2 {
+    padding: 0.8rem;
+  }
+  
+  .card2 img {
+    height: 90px;
+  }
+  
+  .card2 h3 {
+    font-size: 0.9rem;
+  }
+  
+  .card2 p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra Small Mobile Phones (iPhone SE) */
+@media screen and (max-width: 375px) {
+  .services-section {
+    padding: 1.5rem 0.6rem;
+    margin-top: -260px;
+  }
+  
+  .services-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .services-section p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-cards {
+    gap: 0.6rem;
+  }
+  
+  .card2 {
+    padding: 0.7rem;
+  }
+  
+  .card2 img {
+    height: 80px;
+  }
+  
+  .card2 h3 {
+    font-size: 0.85rem;
+  }
+  
+  .card2 p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Very Small Mobile Phones */
+@media screen and (max-width: 320px) {
+  .services-section {
+    padding: 1.2rem 0.4rem;
+    margin-top: -240px;
+  }
+  
+  .services-section h2 {
+    font-size: 1.2rem;
+  }
+  
+  .services-section p {
+    font-size: 0.8rem;
+  }
+  
+  .service-cards {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 1rem;
+    max-width: 280px;
+  }
+  
+  .card2 {
+    padding: 0.6rem;
+    text-align: center;
+  }
+  
+  .card2 img {
+    height: 70px;
+  }
+  
+  .card2 h3 {
+    font-size: 0.8rem;
+  }
+  
+  .card2 p {
+    font-size: 0.65rem;
+  }
+}
+
+/* ==== LANDSCAPE ORIENTATION ==== */
+
+/* Mobile Landscape */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .services-section {
+    padding: 1.5rem 1rem;
+    margin-top: -200px;
+  }
+  
+  .services-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .service-cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards in landscape */
+    gap: 1rem;
+  }
+  
+  .card2 {
+    padding: 0.8rem;
+  }
+  
+  .card2 img {
+    height: 70px;
+  }
+  
+  .card2 h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .card2 p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small Mobile Landscape */
+@media screen and (max-width: 667px) and (orientation: landscape) {
+  .services-section {
+    padding: 1.2rem 0.8rem;
+    margin-top: -160px;
+  }
+  
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .card2 img {
+    height: 60px;
+  }
+  
+  .card2 h3 {
+    font-size: 0.8rem;
+  }
+  
+  .card2 p {
+    font-size: 0.7rem;
+  }
+}
+
+/* ==== SMOOTH ANIMATIONS ==== */
+@media (prefers-reduced-motion: no-preference) {
+  .card2 {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .card2:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .card2:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .card2:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .card2:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== HIGH DPI / RETINA DISPLAYS ==== */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .card2 {
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+  }
+  
+  .card2:hover {
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15);
+  }
+}
+
+/* ==== ACCESSIBILITY - REDUCED MOTION ==== */
+@media (prefers-reduced-motion: reduce) {
+  .card2,
+  .card2::before,
+  .card2 img {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .card2:hover {
+    transform: none;
   }
 }
 /* =========================
@@ -449,3 +741,401 @@
   background-color: #f3f4f6;
 }
 
+/* ==== PRICING SECTION MOBILE MEDIA QUERIES ==== */
+
+/* Tablet / Large Mobile (Portrait) */
+@media screen and (max-width: 768px) {
+  .pricing-section {
+    padding: 50px 15px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  
+  .pricing-section p {
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  
+  .pricing-cards {
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .pricing-card {
+    width: 240px;
+    padding: 18px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 18px;
+  }
+  
+  .pricing-card .price {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Standard Mobile Phones (Portrait) - 3 Plans in One Line */
+@media screen and (max-width: 480px) {
+  .pricing-section {
+    padding: 30px 3px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  
+  .pricing-section p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-cards {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 3px;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .pricing-card {
+    width: calc(33.333% - 2px);
+    min-width: 130px;
+    max-width: 135px;
+    padding: 8px;
+    flex-shrink: 0;
+  }
+  
+  .pricing-card h3 {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+  
+  .pricing-card .subtitle {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .pricing-card .price {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .pricing-card .price span {
+    font-size: 12px;
+  }
+  
+  .pricing-card ul {
+    margin-bottom: 10px;
+  }
+  
+  .pricing-card ul li {
+    padding: 2px 0;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+  
+  .pricing-card button {
+    padding: 6px;
+    font-size: 10px;
+    border-radius: 4px;
+  }
+}
+
+/* Small Mobile Phones - Smaller 3 Plans */
+@media screen and (max-width: 414px) {
+  .pricing-section {
+    padding: 25px 2px;
+  }
+  
+  .pricing-cards {
+    gap: 2px;
+    padding: 0;
+  }
+  
+  .pricing-card {
+    width: calc(33.333% - 1px);
+    min-width: 120px;
+    max-width: 125px;
+    padding: 6px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  
+  .pricing-card .subtitle {
+    font-size: 9px;
+    margin-bottom: 6px;
+  }
+  
+  .pricing-card .price {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  .pricing-card .price span {
+    font-size: 11px;
+  }
+  
+  .pricing-card ul li {
+    padding: 1px 0;
+    font-size: 9px;
+    line-height: 1.0;
+  }
+  
+  .pricing-card button {
+    padding: 5px;
+    font-size: 9px;
+  }
+}
+
+/* Extra Small Mobile Phones (iPhone SE) - Compact 3 Plans */
+@media screen and (max-width: 375px) {
+  .pricing-section {
+    padding: 20px 1px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 20px;
+  }
+  
+  .pricing-cards {
+    gap: 1px;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+  
+  .pricing-card {
+    width: calc(33.333% - 1px);
+    min-width: 110px;
+    max-width: 115px;
+    padding: 5px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 12px;
+    margin-bottom: 1px;
+  }
+  
+  .pricing-card .subtitle {
+    font-size: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .pricing-card .price {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .pricing-card .price span {
+    font-size: 10px;
+  }
+  
+  .pricing-card ul {
+    margin-bottom: 6px;
+  }
+  
+  .pricing-card ul li {
+    padding: 1px 0;
+    font-size: 8px;
+    line-height: 1.0;
+  }
+  
+  .pricing-card button {
+    padding: 4px;
+    font-size: 8px;
+  }
+  
+  .lock-icon {
+    font-size: 0.6rem;
+    margin-left: 1px;
+  }
+}
+
+/* Very Small Mobile Phones - Ultra Compact 3 Plans */
+@media screen and (max-width: 320px) {
+  .pricing-section {
+    padding: 15px 0px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 18px;
+  }
+  
+  .pricing-section p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .pricing-cards {
+    gap: 0px;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+  
+  .pricing-card {
+    width: calc(33.333%);
+    min-width: 100px;
+    max-width: 105px;
+    padding: 3px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+  
+  .pricing-card .subtitle {
+    font-size: 7px;
+    margin-bottom: 4px;
+  }
+  
+  .pricing-card .price {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  
+  .pricing-card .price span {
+    font-size: 9px;
+  }
+  
+  .pricing-card ul {
+    margin-bottom: 4px;
+  }
+  
+  .pricing-card ul li {
+    padding: 0px;
+    font-size: 7px;
+    line-height: 1.0;
+  }
+  
+  .pricing-card button {
+    padding: 3px;
+    font-size: 7px;
+  }
+}
+
+/* ==== LANDSCAPE ORIENTATION - 3 Plans Optimized ==== */
+
+/* Mobile Landscape (Most phones) */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .pricing-section {
+    padding: 30px 15px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  
+  .pricing-section p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .pricing-cards {
+    gap: 12px;
+    max-width: 100%;
+  }
+  
+  .pricing-card {
+    width: 180px;
+    padding: 12px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 16px;
+  }
+  
+  .pricing-card .price {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pricing-card ul li {
+    font-size: 12px;
+    padding: 3px 0;
+  }
+  
+  .pricing-card button {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile Landscape */
+@media screen and (max-width: 667px) and (orientation: landscape) {
+  .pricing-section {
+    padding: 25px 10px;
+  }
+  
+  .pricing-cards {
+    gap: 8px;
+  }
+  
+  .pricing-card {
+    width: 160px;
+    padding: 10px;
+  }
+  
+  .pricing-card h3 {
+    font-size: 15px;
+  }
+  
+  .pricing-card .price {
+    font-size: 20px;
+  }
+  
+  .pricing-card ul li {
+    font-size: 11px;
+  }
+  
+  .pricing-card button {
+    padding: 6px;
+    font-size: 11px;
+  }
+}
+
+/* ==== SPECIAL STATES FOR MOBILE ==== */
+
+/* Selected Plan Mobile Adjustments */
+@media screen and (max-width: 480px) {
+  .selected-plan {
+    border-width: 2px;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+  }
+  
+  .locked-plan {
+    opacity: 0.7;
+  }
+}
+
+/* Horizontal Scroll Indicator for Mobile */
+@media screen and (max-width: 480px) {
+  .pricing-cards::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .pricing-cards::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .pricing-cards::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 10px;
+  }
+  
+  .pricing-cards::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+  }
+}

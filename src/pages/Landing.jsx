@@ -11,25 +11,25 @@ const slides = [
   {
     image: './media/3.png',
     title: 'State-of-the-Art Facilities',
-    description: 'Experience fitness in our premium, fully-equipped gym with the latest technology.',
+    description: 'Experience fitnes swith the latest technology',
     button: 'View Our Gym',
   },
   {
     image: './media/5.png',
     title: 'Expert Trainers, Real Results',
-    description: 'Achieve your goals faster with professional guidance.',
+    description: 'Achieve your goals faster with professional guidance',
     button: 'Meet Our Trainers',
   },
   {
     image: './media/4.png',
     title: 'be your own coach',
-    description: 'Every journey is different, let’s personalize yours.',
+    description: 'Every journey is different, let’s personalize yours',
     button: 'Get Started',
   },
   {
     image: './media/2.png',
     title: 'meals prep',
-    description: 'make your own meals with our programms.',
+    description: 'make your own meals with our programms',
     button: 'Get Started',
   }
 ];

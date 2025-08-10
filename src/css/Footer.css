@@ -1,3 +1,7 @@
+/* =========================
+   FOOTER - RESPONSIVE
+========================= */
+
 .footer {
   background-color: #03BD60;
   color: #d1fae5;
@@ -68,4 +72,361 @@
   padding-top: 20px;
   border-top: 1px solid #14532d;
   font-size: 13px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+/* Tablet / Large Mobile (Portrait) */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 35px 15px;
+  }
+  
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 100%;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  .footer-column ul li a {
+    font-size: 13px;
+  }
+  
+  .footer-icons {
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .footer-icons a .icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .footer-bottom {
+    margin-top: 25px;
+    padding-top: 18px;
+    font-size: 12px;
+  }
+}
+
+/* Standard Mobile Phones (Portrait) */
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 30px 12px;
+  }
+  
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-column p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-column ul li a {
+    font-size: 12px;
+  }
+  
+  .footer-icons {
+    gap: 8px;
+    margin-top: 6px;
+  }
+  
+  .footer-icons a .icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+/* Small Mobile Phones */
+@media screen and (max-width: 414px) {
+  .footer {
+    padding: 25px 10px;
+  }
+  
+  .footer-container {
+    gap: 18px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+  
+  .footer-column p {
+    font-size: 11px;
+  }
+  
+  .footer-column ul li a {
+    font-size: 11px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-icons {
+    gap: 6px;
+    margin-top: 5px;
+  }
+  
+  .footer-icons a .icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* Extra Small Mobile Phones (iPhone SE) */
+@media screen and (max-width: 375px) {
+  .footer {
+    padding: 20px 8px;
+  }
+  
+  .footer-container {
+    gap: 15px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .footer-column p {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  
+  .footer-column ul li a {
+    font-size: 10px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 4px;
+  }
+  
+  .footer-icons {
+    gap: 5px;
+    margin-top: 4px;
+  }
+  
+  .footer-icons a .icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .footer-bottom {
+    margin-top: 15px;
+    padding-top: 12px;
+    font-size: 10px;
+  }
+}
+
+/* Very Small Mobile Phones */
+@media screen and (max-width: 320px) {
+  .footer {
+    padding: 18px 6px;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-column p {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+  
+  .footer-column ul li a {
+    font-size: 9px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 3px;
+  }
+  
+  .footer-icons {
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .footer-icons a .icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .footer-bottom {
+    margin-top: 12px;
+    padding-top: 10px;
+    font-size: 9px;
+  }
+}
+
+/* ==== LANDSCAPE ORIENTATION ==== */
+
+/* Mobile Landscape */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .footer {
+    padding: 20px 15px;
+  }
+  
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .footer-column p {
+    font-size: 11px;
+  }
+  
+  .footer-column ul li a {
+    font-size: 11px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 4px;
+  }
+  
+  .footer-icons {
+    gap: 6px;
+  }
+  
+  .footer-icons a .icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .footer-bottom {
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 10px;
+  }
+}
+
+/* Small Mobile Landscape */
+@media screen and (max-width: 667px) and (orientation: landscape) {
+  .footer {
+    padding: 15px 10px;
+  }
+  
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  
+  .footer-column h3,
+  .footer-column h4 {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .footer-column p {
+    font-size: 10px;
+  }
+  
+  .footer-column ul li a {
+    font-size: 10px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 2px;
+  }
+  
+  .footer-icons {
+    gap: 4px;
+  }
+  
+  .footer-icons a .icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .footer-bottom {
+    margin-top: 10px;
+    padding-top: 8px;
+    font-size: 9px;
+  }
+}
+
+/* ==== TOUCH & ACCESSIBILITY ==== */
+
+/* Increase touch targets on mobile */
+@media screen and (max-width: 480px) {
+  .footer-column ul li a {
+    display: inline-block;
+    padding: 2px 0;
+    min-height: 24px;
+  }
+  
+  .footer-icons a {
+    display: inline-block;
+    padding: 8px;
+    margin: -8px;
+    min-width: 32px;
+    min-height: 32px;
+    text-align: center;
+  }
+}
+
+/* High DPI displays */
+@media screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .footer-bottom {
+    border-top: 1px solid rgba(20, 83, 45, 0.8);
+  }
+}
+
+/* Reduced motion preferences */
+@media screen and (max-width: 480px) and (prefers-reduced-motion: reduce) {
+  .footer-column ul li a,
+  .footer-icons a .icon {
+    transition: none !important;
+  }
 }
